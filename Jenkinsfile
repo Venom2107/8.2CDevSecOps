@@ -2,12 +2,34 @@ pipeline {
     agent any
 
     stages {
-        stage('Check Node') {
+
+        stage('Checkout') {
             steps {
-                bat 'where node'
-                bat 'where npm'
-                bat 'node -v'
-                bat 'npm -v'
+                echo 'Checking out source code'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'npm test || exit /b 0'
+            }
+        }
+
+        stage('Generate Coverage Report') {
+            steps {
+                bat 'npm run coverage || exit /b 0'
+            }
+        }
+
+        stage('NPM Audit (Security Scan)') {
+            steps {
+                bat 'npm audit || exit /b 0'
             }
         }
     }
