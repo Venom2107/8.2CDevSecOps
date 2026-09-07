@@ -39,7 +39,7 @@ pipeline {
 
         stage('SonarCloud Analysis') {
             steps {
-                bat 'C:\\Users\\fletc\\Downloads\\sonar-scanner-cli-8.1.0.6389-windows-x64\\bin\\sonar-scanner.bat'
+                bat 'C:\\Users\\fletc\\Downloads\\sonar-scanner-cli-8.1.0.6389-windows-x64\\sonar-scanner-8.1.0.6389-windows-x64\\bin\\sonar-scanner.bat'
             }
         }
     }
