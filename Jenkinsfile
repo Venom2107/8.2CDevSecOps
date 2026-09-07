@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        SONAR_TOKEN = credentials('SONAR_TOKEN')
+    }
+
     stages {
 
         stage('Checkout') {
@@ -30,6 +34,12 @@ pipeline {
         stage('NPM Audit (Security Scan)') {
             steps {
                 bat 'npm audit || exit /b 0'
+            }
+        }
+
+        stage('SonarCloud Analysis') {
+            steps {
+                bat 'C:\\sonar-scanner\\bin\\sonar-scanner.bat'
             }
         }
     }
