@@ -1,0 +1,10 @@
+# sonar-project.properties
+sonar.projectKey=Venom2107_8.2CDevSecOps
+sonar.organization=venom2107
+sonar.host.url=https://sonarcloud.io
+sonar.login=$9b5c1f8da956492baa16a0d6a7dfb4df128225ae
+sonar.sources=.
+sonar.exclusions=node_modules/**,test/**
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+sonar.projectName=NodeJS Goof Vulnerable App
+sonar.sourceEncoding=UTF-8
